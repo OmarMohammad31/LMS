@@ -1,5 +1,4 @@
 node_modules/
 .env
 relevant files/
-.idea/
-get-refresh-token.js
+*.txt
