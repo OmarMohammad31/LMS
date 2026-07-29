@@ -1,0 +1,14 @@
+<h2>Open Tutoring Requests</h2>
+<p>{{ message }}</p>
+
+<div *ngIf="requests.length === 0">No open requests right now.</div>
+
+<div *ngFor="let req of requests" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+  <p><strong>Topic:</strong> {{ req.topic }}</p>
+  <p><strong>Learner:</strong> {{ req.learnerId?.name || req.learnerId }}</p>
+
+  <input type="datetime-local" [(ngModel)]="startTime[req._id]" name="startTime-{{req._id}}">
+  <input type="number" placeholder="Duration (minutes)" [(ngModel)]="durationMinutes[req._id]" name="duration-{{req._id}}">
+
+  <button (click)="accept(req._id)">Accept</button>
+</div>
