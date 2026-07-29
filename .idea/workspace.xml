@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c03fa140-fc5c-42d2-98b6-8a6ab1e4b303" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/db.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/sessionController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/tutoringController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/userController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/get-refresh-token.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/errorHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nodemon.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/controllers/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/controllers/session.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/middleware/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/models/session.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/models/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/routes/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/routes/session.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/controllers/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/controllers/session.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/middleware/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/models/session.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/models/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Backup-codes-omaryousef3132 CONSOLE CLOUD GOOGLE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/.idea/Mohamed Abd-El Ghany.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/config/db.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/controllers/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/controllers/session.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/middleware/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/models/CreditTransaction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/models/Session.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/models/TutoringRequest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/models/User.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/routes/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/routes/session.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/SRS PeerLearning LMS.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/PROJECT_CONTEXT.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/dns_issue_and_status.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/google-calendar-execution-steps.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/google-calendar-integration-guide.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/mongodb_atlas_dns_issue_context.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/project_execution_context.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/project_full_context.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relevant files/google cloud.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/authRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/sessionRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/tutoringRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/userRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/calendarService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/schedulerService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/sessionService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/AppError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/asyncHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/jwt.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/password.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/package.json" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3GgcW4MlCajNolHvHU4p9JHFllQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.get-refresh-token.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "disable.download.node.interpreter.editor.notification": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.preferred.runtime.type.id": "node",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2026.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-024ed6589d45-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.23567.174" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c03fa140-fc5c-42d2-98b6-8a6ab1e4b303" name="Changes" comment="" />
+      <created>1784396682780</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1784396682780</updated>
+      <workItem from="1784396684645" duration="7275000" />
+      <workItem from="1784416618427" duration="2947000" />
+      <workItem from="1784445069494" duration="23000" />
+      <workItem from="1784702672434" duration="2146000" />
+      <workItem from="1784787014695" duration="1233000" />
+      <workItem from="1785272704039" duration="2000" />
+      <workItem from="1785272764449" duration="19000" />
+      <workItem from="1785330658758" duration="1317000" />
+      <workItem from="1785334395712" duration="37000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
