@@ -1,4 +1,5 @@
 const asyncHandler = require('../utils/asyncHandler');
+const User = require('../models/User');
 
 // GET /users/me
 const getMe = asyncHandler(async (req, res) => {
@@ -6,4 +7,10 @@ const getMe = asyncHandler(async (req, res) => {
   res.json({ id: _id, name, email, isInstructor, creditBalance });
 });
 
-module.exports = { getMe };
+// GET /users (List all registered users)
+const getAllUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({}, '-passwordHash');
+  res.json(users);
+});
+
+module.exports = { getMe, getAllUsers };

@@ -1,10 +1,11 @@
+require('dotenv').config();
 const { google } = require('googleapis');
 const readline = require('readline');
 
 const oauth2Client = new google.auth.OAuth2(
-    '102577624811-ba19ekslr4d72sn7o5rkh079a0e4fh7b.apps.googleusercontent.com',
-    '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',
-    'urn:ietf:wg:oauth:2.0:oob' // shows the code on screen instead of redirecting to a server
+    process.env.GOOGLE_CLIENT_ID,
+    process.env.GOOGLE_CLIENT_SECRET,
+    'urn:ietf:wg:oauth:2.0:oob'
 );
 
 const url = oauth2Client.generateAuthUrl({
