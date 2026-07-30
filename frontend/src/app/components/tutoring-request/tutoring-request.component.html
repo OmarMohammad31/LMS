@@ -1,1 +1,29 @@
+<h2>Create Tutoring Request</h2>
 
+<div>
+  <input
+    type="text"
+    [(ngModel)]="topic"
+    placeholder="Enter topic"
+  />
+
+  <button (click)="createRequest()">
+    Create Request
+  </button>
+</div>
+
+<hr>
+
+<h2>Available Tutoring Requests</h2>
+
+<div *ngIf="requests.length === 0">
+  No tutoring requests available.
+</div>
+
+<ul *ngIf="requests.length > 0">
+  <li *ngFor="let request of requests">
+    <strong>Topic:</strong> {{ request.topic }}
+    <br>
+    <strong>Status:</strong> {{ request.status }}
+  </li>
+</ul>
