@@ -1,5 +1,4 @@
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TutoringRequestService } from '../../services/tutoring-request.service';
 
 @Component({
@@ -7,27 +6,42 @@ import { TutoringRequestService } from '../../services/tutoring-request.service'
   templateUrl: './tutoring-request.component.html',
   styleUrls: ['./tutoring-request.component.css']
 })
-export class TutoringRequestComponent {
+export class TutoringRequestComponent implements OnInit {
 
   topic: string = '';
   requests: any[] = [];
+  loading: boolean = false;
 
   constructor(private tutoringService: TutoringRequestService) {}
 
-  createRequest() {
+  ngOnInit(): void {
+    this.loadRequests();
+  }
+
+  createRequest(): void {
+
+    if (!this.topic.trim()) {
+      alert('Please enter a topic');
+      return;
+    }
+
+    this.loading = true;
+
     this.tutoringService.createRequest(this.topic).subscribe({
-      next: (res) => {
+      next: () => {
+        this.loading = false;
         alert('Request created successfully');
         this.topic = '';
         this.loadRequests();
       },
       error: (err) => {
+        this.loading = false;
         alert(err.error?.message || 'Error creating request');
       }
     });
   }
 
-  loadRequests() {
+  loadRequests(): void {
     this.tutoringService.getRequests().subscribe({
       next: (data: any) => {
         this.requests = data;
@@ -38,7 +52,4 @@ export class TutoringRequestComponent {
     });
   }
 
-  ngOnInit() {
-    this.loadRequests();
-  }
 }
