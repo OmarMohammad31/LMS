@@ -1,3 +1,4 @@
+require('./models/CreditTransaction');
 require('dotenv').config();
 const app = require('./app');
 const connectDB = require('./config/db');
