@@ -1,39 +1,43 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  private baseUrl = 'http://localhost:5000';
+export class TutoringRequestService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  private apiUrl = 'http://localhost:5000/tutoring-requests';
 
-  register(user: any) {
-    return this.http.post(`${this.baseUrl}/auth/register`, user);
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService
+  ) {}
+
+  private getHeaders() {
+    const token = this.authService.getToken();
+
+    return {
+      headers: new HttpHeaders().set(
+        'Authorization',
+        `Bearer ${token}`
+      )
+    };
   }
 
-  login(user: any) {
-    return this.http.post(`${this.baseUrl}/auth/login`, user);
+  createRequest(topic: string): Observable<any> {
+    return this.http.post(
+      this.apiUrl,
+      { topic },
+      this.getHeaders()
+    );
   }
 
-  getProfile() {
-    const token = this.getToken();
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get(`${this.baseUrl}/users/me`, { headers });
-  }
-
-  getToken(): string | null {
-    return localStorage.getItem('token');
-  }
-
-  isLoggedIn(): boolean {
-    return !!this.getToken();
-  }
-
-  logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+  getRequests(): Observable<any> {
+    return this.http.get(
+      this.apiUrl,
+      this.getHeaders()
+    );
   }
 }
