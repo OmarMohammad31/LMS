@@ -1,25 +1,32 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { AcceptRequestPayload, TutoringRequest } from '../models/tutoring-request.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class TutoringService {
-  private baseUrl = 'http://localhost:5000/tutoring-requests';
+  private baseUrl = `${environment.apiUrl}/tutoring-requests`;
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient) {}
 
-  private getHeaders(): HttpHeaders {
-    const token = this.authService.getToken();
-    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  listOpenRequests(): Observable<TutoringRequest[]> {
+    return this.http.get<TutoringRequest[]>(this.baseUrl);
   }
 
-  listOpenRequests() {
-    return this.http.get(this.baseUrl, { headers: this.getHeaders() });
+  listMine(): Observable<TutoringRequest[]> {
+    return this.http.get<TutoringRequest[]>(`${this.baseUrl}/mine`);
   }
 
-  acceptRequest(requestId: string, data: { startTime: string; durationMinutes: number }) {
-    return this.http.post(`${this.baseUrl}/${requestId}/accept`, data, { headers: this.getHeaders() });
+  createRequest(topic: string): Observable<TutoringRequest> {
+    return this.http.post<TutoringRequest>(this.baseUrl, { topic });
+  }
+
+  acceptRequest(requestId: string, data: AcceptRequestPayload): Observable<TutoringRequest> {
+    return this.http.post<TutoringRequest>(`${this.baseUrl}/${requestId}/accept`, data);
+  }
+
+  confirmRequest(requestId: string): Observable<TutoringRequest | null> {
+    return this.http.post<TutoringRequest | null>(`${this.baseUrl}/${requestId}/confirm`, {});
   }
 }

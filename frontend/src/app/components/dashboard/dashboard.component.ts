@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/models/user.model';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  userProfile: any = null;
-  loading: boolean = true;
-  errorMsg: string = '';
+  userProfile: User | null = null;
+  loading = true;
+  errorMsg = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private userService: UserService) {}
 
   ngOnInit(): void {
     this.fetchProfile();
@@ -18,12 +21,12 @@ export class DashboardComponent implements OnInit {
 
   fetchProfile(): void {
     this.loading = true;
-    this.authService.getProfile().subscribe({
-      next: (data: any) => {
+    this.userService.getMe().subscribe({
+      next: (data) => {
         this.userProfile = data;
         this.loading = false;
       },
-      error: (err: any) => {
+      error: () => {
         this.loading = false;
         this.errorMsg = 'Session expired or invalid token.';
         this.authService.logout();

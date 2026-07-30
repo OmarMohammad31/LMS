@@ -1,39 +1,46 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { AuthResponse } from '../models/user.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  private baseUrl = 'http://localhost:5000';
+  private baseUrl = `${environment.apiUrl}/auth`;
+  private token: string | null = null;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  private currentUserSubject = new BehaviorSubject<AuthResponse['user'] | null>(null);
+  currentUser$ = this.currentUserSubject.asObservable();
 
-  register(user: any) {
-    return this.http.post(`${this.baseUrl}/auth/register`, user);
+  constructor(private http: HttpClient, private router: Router) {}
+
+  register(user: any): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.baseUrl}/register`, user)
+      .pipe(tap(res => this.setSession(res)));
   }
 
-  login(user: any) {
-    return this.http.post(`${this.baseUrl}/auth/login`, user);
-  }
-
-  getProfile() {
-    const token = this.getToken();
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get(`${this.baseUrl}/users/me`, { headers });
+  login(user: any): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.baseUrl}/login`, user)
+      .pipe(tap(res => this.setSession(res)));
   }
 
   getToken(): string | null {
-    return localStorage.getItem('token');
+    return this.token;
   }
 
   isLoggedIn(): boolean {
-    return !!this.getToken();
+    return !!this.token;
   }
 
-  logout() {
-    localStorage.removeItem('token');
+  logout(): void {
+    this.token = null;
+    this.currentUserSubject.next(null);
     this.router.navigate(['/login']);
+  }
+
+  private setSession(res: AuthResponse): void {
+    this.token = res.token;
+    this.currentUserSubject.next(res.user);
   }
 }

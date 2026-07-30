@@ -1,21 +1,21 @@
-<div style="font-family: sans-serif; padding: 20px;">
-  <h1 style="text-align: center; color: #2c3e50;">LMS Portal</h1>
+<div class="app-shell">
+  <header class="app-header">
+    <h1 class="app-header__title">LMS Portal</h1>
+    <nav class="app-nav">
+      <ng-container *ngIf="!authService.isLoggedIn()">
+        <a routerLink="/login" class="app-nav__link">Login</a>
+        <a routerLink="/register" class="app-nav__link">Register</a>
+      </ng-container>
+      <ng-container *ngIf="authService.isLoggedIn()">
+        <a routerLink="/dashboard" class="app-nav__link">Dashboard</a>
+        <button (click)="logout()" class="app-nav__link app-nav__link--button">Logout</button>
+      </ng-container>
+    </nav>
+  </header>
 
-  <!-- Navigation bar -->
-  <div style="text-align: center; margin-bottom: 20px; padding: 10px; background-color: #ecf0f1; border-radius: 6px;">
-    <ng-container *ngIf="!authService.isLoggedIn()">
-      <a routerLink="/login" style="margin-right: 15px; font-weight: bold; text-decoration: none; color: #2980b9;">Login</a>
-      <a routerLink="/register" style="font-weight: bold; text-decoration: none; color: #27ae60;">Register</a>
-    </ng-container>
+  <main class="app-main">
+    <router-outlet></router-outlet>
+  </main>
 
-    <ng-container *ngIf="authService.isLoggedIn()">
-      <a routerLink="/dashboard" style="margin-right: 15px; font-weight: bold; text-decoration: none; color: #8e44ad;">Dashboard</a>
-      <button (click)="logout()" style="background: none; border: none; color: #c0392b; font-weight: bold; cursor: pointer; text-decoration: underline;">Logout</button>
-    </ng-container>
-  </div>
-
-  <hr style="border: 0; height: 1px; background: #ddd; margin-bottom: 20px;">
-
-  <!-- Dynamic view container -->
-  <router-outlet></router-outlet>
+  <app-toast></app-toast>
 </div>
