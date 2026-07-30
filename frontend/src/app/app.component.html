@@ -3,44 +3,19 @@
 
   <!-- Navigation bar -->
   <div style="text-align: center; margin-bottom: 20px; padding: 10px; background-color: #ecf0f1; border-radius: 6px;">
-
     <ng-container *ngIf="!authService.isLoggedIn()">
-      <a routerLink="/login"
-         style="margin-right: 15px; font-weight: bold; text-decoration: none; color: #2980b9;">
-        Login
-      </a>
-
-      <a routerLink="/register"
-         style="font-weight: bold; text-decoration: none; color: #27ae60;">
-        Register
-      </a>
+      <a routerLink="/login" style="margin-right: 15px; font-weight: bold; text-decoration: none; color: #2980b9;">Login</a>
+      <a routerLink="/register" style="font-weight: bold; text-decoration: none; color: #27ae60;">Register</a>
     </ng-container>
 
     <ng-container *ngIf="authService.isLoggedIn()">
-
-      <a routerLink="/dashboard"
-         style="margin-right: 15px; font-weight: bold; text-decoration: none; color: #8e44ad;">
-        Dashboard
-      </a>
-
-      <a routerLink="/tutoring-request"
-         style="margin-right: 15px; font-weight: bold; text-decoration: none; color: #16a085;">
-        Tutoring Requests
-      </a>
-
-      <button
-        (click)="logout()"
-        style="background: none; border: none; color: #c0392b; font-weight: bold; cursor: pointer; text-decoration: underline;">
-        Logout
-      </button>
-
+      <a routerLink="/dashboard" style="margin-right: 15px; font-weight: bold; text-decoration: none; color: #8e44ad;">Dashboard</a>
+      <button (click)="logout()" style="background: none; border: none; color: #c0392b; font-weight: bold; cursor: pointer; text-decoration: underline;">Logout</button>
     </ng-container>
-
   </div>
 
   <hr style="border: 0; height: 1px; background: #ddd; margin-bottom: 20px;">
 
   <!-- Dynamic view container -->
   <router-outlet></router-outlet>
-
 </div>
