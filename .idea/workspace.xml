@@ -4,80 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c03fa140-fc5c-42d2-98b6-8a6ab1e4b303" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/sessionController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/tutoringController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/userController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/get-refresh-token.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/errorHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nodemon.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/controllers/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/controllers/session.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/middleware/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/models/session.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/models/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/routes/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/Project File/routes/session.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/controllers/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/controllers/session.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/middleware/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/models/session.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/models/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Abd-El Rahman/Project File/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Backup-codes-omaryousef3132 CONSOLE CLOUD GOOGLE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/.idea/Mohamed Abd-El Ghany.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/config/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/controllers/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/controllers/session.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/middleware/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/models/CreditTransaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/models/Session.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/models/TutoringRequest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/models/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/routes/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/Mohamed Abd-El Ghany/final project/routes/session.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/SRS PeerLearning LMS.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/PROJECT_CONTEXT.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/dns_issue_and_status.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/google-calendar-execution-steps.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/google-calendar-integration-guide.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/mongodb_atlas_dns_issue_context.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/project_execution_context.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/claude plans/project_full_context.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relevant files/google cloud.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/authRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/sessionRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/tutoringRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/userRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seed.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/calendarService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/schedulerService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/sessionService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/AppError.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/asyncHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/jwt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/password.js" afterDir="false" />
-    </list>
+    <list default="true" id="c03fa140-fc5c-42d2-98b6-8a6ab1e4b303" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,31 +25,179 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.get-refresh-token.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;disable.download.node.interpreter.editor.notification&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2026.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.get-refresh-token.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "disable.download.node.interpreter.editor.notification": "true",
+    "git-widget-placeholder": "revert-main",
+    "ignore.virus.scanning.warn.message": "true",
+    "javascript.preferred.runtime.type.id": "node",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2026.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.Celery" factoryName="Python.Celery.App">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.Celery" factoryName="Python.Celery.Task">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Docutils task">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <option name="RUN_TOOL" value="" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docs" factoryName="Sphinx task">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <option name="RUN_TOOL" value="" />
+      <option name="docutils_input_file" value="" />
+      <option name="docutils_output_file" value="" />
+      <option name="docutils_params" value="" />
+      <option name="docutils_task" value="" />
+      <option name="docutils_open_in_browser" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -147,6 +222,7 @@
       <workItem from="1785330658758" duration="1317000" />
       <workItem from="1785334395712" duration="37000" />
       <workItem from="1785336269988" duration="1000" />
+      <workItem from="1785390239691" duration="8000" />
     </task>
     <servers />
   </component>
