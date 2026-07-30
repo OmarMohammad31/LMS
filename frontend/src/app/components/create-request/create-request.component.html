@@ -1,0 +1,6 @@
+<h2>Create Tutoring Request</h2>
+<form (ngSubmit)="onSubmit()">
+  <input type="text" [(ngModel)]="topic" name="topic" placeholder="Topic (e.g. Algebra)" required>
+  <button type="submit">Create Request</button>
+</form>
+<p>{{ message }}</p>

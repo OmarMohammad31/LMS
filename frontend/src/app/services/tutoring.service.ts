@@ -21,5 +21,12 @@ export class TutoringService {
 
   acceptRequest(requestId: string, data: { startTime: string; durationMinutes: number }) {
     return this.http.post(`${this.baseUrl}/${requestId}/accept`, data, { headers: this.getHeaders() });
+ }
+  createRequest(topic: string) {
+    return this.http.post(this.baseUrl, { topic }, { headers: this.getHeaders() });
   }
+  listAllRequests() {
+  return this.http.get(`${this.baseUrl}/all`, { headers: this.getHeaders() });
+}
+
 }
