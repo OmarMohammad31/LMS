@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ToastService } from 'src/app/services/toast.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: any = {
-    email: '',
-    password: ''
-  };
+  user: any = { email: '', password: '' };
+  errorMessage = '';
+  loading = false;
 
-  errorMessage: string = '';
-  loading: boolean = false;
-
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastService: ToastService
+  ) {}
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {
@@ -33,14 +35,14 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     this.authService.login(this.user).subscribe({
-      next: (res: any) => {
+      next: () => {
         this.loading = false;
-        localStorage.setItem('token', res.token);
+        this.toastService.success('Welcome back!');
         this.router.navigate(['/dashboard']);
       },
       error: (err: any) => {
         this.loading = false;
-        this.errorMessage = err.error?.message || 'Invalid credentials or login failed.';
+        this.errorMessage = err.error?.error || 'Invalid credentials or login failed.';
       }
     });
   }

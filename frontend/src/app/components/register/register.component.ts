@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ToastService } from 'src/app/services/toast.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  user: any = {
-    name: '',
-    email: '',
-    password: '',
-    isInstructor: false
-  };
+  user: any = { name: '', email: '', password: '', isInstructor: false };
+  errorMessage = '';
+  loading = false;
 
-  errorMessage: string = '';
-  loading: boolean = false;
-
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastService: ToastService
+  ) {}
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {
@@ -35,14 +35,14 @@ export class RegisterComponent implements OnInit {
     this.loading = true;
 
     this.authService.register(this.user).subscribe({
-      next: (res: any) => {
+      next: () => {
         this.loading = false;
-        localStorage.setItem('token', res.token);
+        this.toastService.success('Account created!');
         this.router.navigate(['/dashboard']);
       },
       error: (err: any) => {
         this.loading = false;
-        this.errorMessage = err.error?.message || 'Registration failed. Try a different email.';
+        this.errorMessage = err.error?.error || 'Registration failed. Try a different email.';
       }
     });
   }
