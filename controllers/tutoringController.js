@@ -32,6 +32,14 @@ const listRequests = asyncHandler(async (req, res) => {
   });
   res.json(requests);
 });
+// GET /tutoring-requests/all — every request, any status, visible to all authenticated users
+const listAllRequests = asyncHandler(async (req, res) => {
+  const requests = await TutoringRequest.find({})
+    .populate('learnerId', 'name email')
+    .populate('tutorId', 'name email')
+    .sort({ createdAt: -1 });
+  res.json(requests);
+});
 
 // GET /tutoring-requests/mine — every request where the caller is either the
 // learner or the tutor, regardless of status. This is the missing read the
@@ -102,3 +110,4 @@ const confirmRequest = asyncHandler(async (req, res) => {
 });
 
 module.exports = { createRequest, listRequests, listMine, acceptRequest, confirmRequest };
+module.exports = { createRequest, listRequests, acceptRequest, confirmRequest, listAllRequests };
