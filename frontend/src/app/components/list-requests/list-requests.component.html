@@ -1,0 +1,19 @@
+<h2>All Tutoring Requests</h2>
+<p>{{ message }}</p>
+
+<div *ngIf="requests.length === 0">No requests found.</div>
+
+<table *ngIf="requests.length > 0" border="1" cellpadding="8">
+  <tr>
+    <th>Topic</th>
+    <th>Learner</th>
+    <th>Tutor</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor="let req of requests">
+    <td>{{ req.topic }}</td>
+    <td>{{ req.learnerId?.name || req.learnerId }}</td>
+    <td>{{ req.tutorId?.name || '—' }}</td>
+    <td>{{ req.status }}</td>
+  </tr>
+</table>

@@ -10,22 +10,29 @@ import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AcceptRequestsComponent } from './components/accept-requests/accept-requests.component';
+import { CreateRequestComponent } from './components/create-request/create-request.component';
+import { ListRequestsComponent } from './components/list-requests/list-requests.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'accept-requests', component: AcceptRequestsComponent, canActivate: [AuthGuard] },
+  { path: 'create-request', component: CreateRequestComponent, canActivate: [AuthGuard] },
+  { path: 'list-requests', component: ListRequestsComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }
 ];
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    AcceptRequestsComponent
+    AcceptRequestsComponent,
+    CreateRequestComponent,
+    ListRequestsComponent
   ],
   imports: [
     BrowserModule,
