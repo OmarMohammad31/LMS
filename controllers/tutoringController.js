@@ -33,10 +33,21 @@ const listRequests = asyncHandler(async (req, res) => {
   res.json(requests);
 });
 
+// GET /tutoring-requests/mine — every request where the caller is either the
+// learner or the tutor, regardless of status. This is the missing read the
+// learner/tutor-facing UI needs, since listRequests() above intentionally
+// excludes the caller's own requests.
+const listMine = asyncHandler(async (req, res) => {
+  const requests = await TutoringRequest.find({
+    $or: [{ learnerId: req.user._id }, { tutorId: req.user._id }],
+  }).sort({ createdAt: -1 });
+  res.json(requests);
+});
+
 // POST /tutoring-requests/:id/accept (FR3.4, FR3.5)
 const acceptRequest = asyncHandler(async (req, res) => {
   const request = await TutoringRequest.findOne({ _id: req.params.id, status: 'open' })
-    .populate('learnerId', 'name email');
+      .populate('learnerId', 'name email');
   if (!request) throw new AppError('Request not available', 404);
 
   const tutor = req.user;
@@ -76,9 +87,9 @@ const confirmRequest = asyncHandler(async (req, res) => {
 
   const flagField = isLearner ? 'learnerConfirmed' : 'tutorConfirmed';
   const updated = await TutoringRequest.findOneAndUpdate(
-    { _id: request._id },
-    { $set: { [flagField]: true } },
-    { new: true }
+      { _id: request._id },
+      { $set: { [flagField]: true } },
+      { new: true }
   );
 
   // both sides now confirmed → trigger the atomic transaction-based transfer
@@ -90,4 +101,4 @@ const confirmRequest = asyncHandler(async (req, res) => {
   res.json(updated);
 });
 
-module.exports = { createRequest, listRequests, acceptRequest, confirmRequest };
+module.exports = { createRequest, listRequests, listMine, acceptRequest, confirmRequest };
