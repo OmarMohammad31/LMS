@@ -11,6 +11,7 @@
   padding: 16px 24px;
   background-color: #2c3e50;
   color: white;
+  position: relative;
 }
 .app-header__title {
   margin: 0;
@@ -33,13 +34,49 @@
 .app-nav__link--button {
   color: #ff6b6b;
 }
+.app-nav__link--debug {
+  color: #f0c674;
+}
+.app-nav__menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.app-nav__menu {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
 .app-main {
   flex: 1;
   padding: 24px;
 }
-@media (max-width: 480px) {
+
+@media (max-width: 768px) {
   .app-header {
+    flex-wrap: wrap;
+  }
+  .app-nav__menu-toggle {
+    display: inline-block;
+  }
+  .app-nav__menu {
+    display: none;
     flex-direction: column;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 10px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #2c3e50;
+    padding: 16px;
+    width: 200px;
+    z-index: 100;
+  }
+  .app-nav__menu--open {
+    display: flex;
   }
 }
