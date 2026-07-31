@@ -7,6 +7,7 @@
         <a routerLink="/register" class="app-nav__link">Register</a>
       </ng-container>
       <ng-container *ngIf="authService.isLoggedIn()">
+        <app-credit-balance></app-credit-balance>
         <a routerLink="/dashboard" class="app-nav__link">Dashboard</a>
         <a routerLink="/sessions" class="app-nav__link">Sessions</a>
         <a routerLink="/tutoring/new" class="app-nav__link">Request Tutoring</a>
