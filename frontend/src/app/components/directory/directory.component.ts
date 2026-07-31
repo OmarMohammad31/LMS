@@ -4,11 +4,11 @@ import { ToastService } from 'src/app/services/toast.service';
 import { User } from 'src/app/models/user.model';
 
 @Component({
-  selector: 'app-users-debug',
-  templateUrl: './users-debug.component.html',
-  styleUrls: ['./users-debug.component.css']
+  selector: 'app-directory',
+  templateUrl: './directory.component.html',
+  styleUrls: ['./directory.component.css']
 })
-export class UsersDebugComponent implements OnInit {
+export class DirectoryComponent implements OnInit {
   users: User[] = [];
   loading = true;
 
@@ -26,7 +26,7 @@ export class UsersDebugComponent implements OnInit {
       },
       error: () => {
         this.loading = false;
-        this.toastService.error('Could not load users.');
+        this.toastService.error('Could not load directory.');
       }
     });
   }
