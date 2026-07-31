@@ -6,6 +6,7 @@ import { ToastService } from 'src/app/services/toast.service';
 @Component({
   selector: 'app-session-create',
   templateUrl: './session-create.component.html',
+  standalone: false,
   styleUrls: ['./session-create.component.css']
 })
 export class SessionCreateComponent {

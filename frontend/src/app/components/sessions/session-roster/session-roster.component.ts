@@ -5,6 +5,7 @@ import { SessionService } from 'src/app/services/session.service';
 @Component({
   selector: 'app-session-roster',
   templateUrl: './session-roster.component.html',
+  standalone: false,
   styleUrls: ['./session-roster.component.css']
 })
 export class SessionRosterComponent implements OnInit {

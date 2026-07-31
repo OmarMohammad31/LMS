@@ -9,10 +9,12 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
-import { AcceptRequestsComponent } from './components/accept-requests/accept-requests.component';
 import { SessionListComponent } from './components/sessions/session-list/session-list.component';
 import { SessionCreateComponent } from './components/sessions/session-create/session-create.component';
 import { SessionRosterComponent } from './components/sessions/session-roster/session-roster.component';
+import { RequestCreateComponent } from './components/tutoring/request-create/request-create.component';
+import { RequestListComponent } from './components/tutoring/request-list/request-list.component';
+import { MyRequestsComponent } from './components/tutoring/my-requests/my-requests.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
@@ -23,7 +25,9 @@ const routes: Routes = [
   { path: 'sessions', component: SessionListComponent, canActivate: [AuthGuard] },
   { path: 'sessions/new', component: SessionCreateComponent, canActivate: [AuthGuard] },
   { path: 'sessions/:id/roster', component: SessionRosterComponent, canActivate: [AuthGuard] },
-  { path: 'accept-requests', component: AcceptRequestsComponent, canActivate: [AuthGuard] },
+  { path: 'tutoring/new', component: RequestCreateComponent, canActivate: [AuthGuard] },
+  { path: 'tutoring/open', component: RequestListComponent, canActivate: [AuthGuard] },
+  { path: 'tutoring/mine', component: MyRequestsComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }
 ];
@@ -34,10 +38,12 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    AcceptRequestsComponent,
     SessionListComponent,
     SessionCreateComponent,
-    SessionRosterComponent
+    SessionRosterComponent,
+    RequestCreateComponent,
+    RequestListComponent,
+    MyRequestsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,26 @@
+.requests-page { max-width: 600px; margin: 0 auto; }
+.request-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.request-card__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.request-card__meta { color: #888; font-size: 13px; margin-top: 4px; }
+.request-card__status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+.request-card__status--open { background: #fef5e7; color: #d68910; }
+.request-card__status--accepted { background: #eaf2f8; color: #2874a6; }
+.request-card__status--confirmed { background: #eafaf1; color: #1e8449; }
+.request-card__status--expired { background: #f2f3f4; color: #7b7d7d; }
+.request-card__status--failed_transfer { background: #fdedec; color: #c0392b; }

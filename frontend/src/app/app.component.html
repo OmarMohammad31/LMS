@@ -9,6 +9,9 @@
       <ng-container *ngIf="authService.isLoggedIn()">
         <a routerLink="/dashboard" class="app-nav__link">Dashboard</a>
         <a routerLink="/sessions" class="app-nav__link">Sessions</a>
+        <a routerLink="/tutoring/new" class="app-nav__link">Request Tutoring</a>
+        <a routerLink="/tutoring/open" class="app-nav__link">Accept Requests</a>
+        <a routerLink="/tutoring/mine" class="app-nav__link">My Requests</a>
         <button (click)="logout()" class="app-nav__link app-nav__link--button">Logout</button>
       </ng-container>
     </nav>

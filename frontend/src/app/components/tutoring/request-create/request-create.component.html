@@ -1,0 +1,16 @@
+<div class="form-page">
+  <h2>Request Tutoring</h2>
+
+  <p *ngIf="errorMessage" class="error-text">{{ errorMessage }}</p>
+
+  <form (ngSubmit)="submit()">
+    <label>Topic *</label>
+    <input type="text" [(ngModel)]="topic" name="topic" placeholder="e.g. Linear Algebra" required>
+
+    <button type="submit" class="btn btn--primary" [disabled]="submitting">
+      {{ submitting ? 'Submitting...' : 'Submit Request' }}
+    </button>
+  </form>
+
+  <p class="form-page__hint">Costs 1 credit. You can only have one open request at a time.</p>
+</div>
