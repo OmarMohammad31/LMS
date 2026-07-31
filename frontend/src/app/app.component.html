@@ -8,8 +8,6 @@
     </nav>
 
     <nav class="app-nav" *ngIf="authService.isLoggedIn()">
-      <app-credit-balance></app-credit-balance>
-
       <button class="app-nav__menu-toggle" (click)="menuOpen = !menuOpen">
         Menu
       </button>
@@ -17,9 +15,11 @@
       <div class="app-nav__menu" [class.app-nav__menu--open]="menuOpen">
         <a routerLink="/dashboard" class="app-nav__link" (click)="menuOpen = false">Dashboard</a>
         <a routerLink="/sessions" class="app-nav__link" (click)="menuOpen = false">Sessions</a>
-        <a routerLink="/tutoring/new" class="app-nav__link" (click)="menuOpen = false">Request Tutoring</a>
-        <a routerLink="/tutoring/open" class="app-nav__link" (click)="menuOpen = false">Accept Requests</a>
-        <a routerLink="/tutoring/mine" class="app-nav__link" (click)="menuOpen = false">My Requests</a>
+        <ng-container *ngIf="currentUser && !currentUser.isInstructor">
+          <a routerLink="/tutoring/new" class="app-nav__link" (click)="menuOpen = false">Request Tutoring</a>
+          <a routerLink="/tutoring/open" class="app-nav__link" (click)="menuOpen = false">Accept Requests</a>
+          <a routerLink="/tutoring/mine" class="app-nav__link" (click)="menuOpen = false">My Requests</a>
+        </ng-container>
         <a routerLink="/directory" class="app-nav__link" (click)="menuOpen = false">Directory</a>
         <button (click)="logout()" class="app-nav__link app-nav__link--button">Logout</button>
       </div>

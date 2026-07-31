@@ -18,9 +18,9 @@
 
     <button *ngIf="canConfirm(request)"
             class="btn btn--primary"
-            [disabled]="confirmingId === request._id"
+            [disabled]="confirmingId === request._id || hasUserConfirmed(request)"
             (click)="openConfirmDialog(request)">
-      {{ confirmingId === request._id ? 'Confirming...' : 'Confirm session happened' }}
+      {{ confirmingId === request._id ? 'Confirming...' : (hasUserConfirmed(request) ? 'Session confirmed' : 'Confirm session happened') }}
     </button>
   </div>
 
