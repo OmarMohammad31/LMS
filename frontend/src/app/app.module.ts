@@ -15,6 +15,7 @@ import { SessionRosterComponent } from './components/sessions/session-roster/ses
 import { RequestCreateComponent } from './components/tutoring/request-create/request-create.component';
 import { RequestListComponent } from './components/tutoring/request-list/request-list.component';
 import { MyRequestsComponent } from './components/tutoring/my-requests/my-requests.component';
+import { UsersDebugComponent } from './components/admin/users-debug/users-debug.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'tutoring/new', component: RequestCreateComponent, canActivate: [AuthGuard] },
   { path: 'tutoring/open', component: RequestListComponent, canActivate: [AuthGuard] },
   { path: 'tutoring/mine', component: MyRequestsComponent, canActivate: [AuthGuard] },
+  { path: 'debug/users', component: UsersDebugComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', redirectTo: 'login' }
 ];
@@ -43,7 +45,8 @@ const routes: Routes = [
     SessionRosterComponent,
     RequestCreateComponent,
     RequestListComponent,
-    MyRequestsComponent
+    MyRequestsComponent,
+    UsersDebugComponent
   ],
   imports: [
     BrowserModule,

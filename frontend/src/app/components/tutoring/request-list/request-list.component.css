@@ -19,3 +19,11 @@
   border-radius: 4px;
   font-size: 13px;
 }
+@media (max-width: 480px) {
+  .request-card__form {
+    flex-direction: column;
+  }
+  .request-card__form input, .request-card__form button {
+    width: 100%;
+  }
+}

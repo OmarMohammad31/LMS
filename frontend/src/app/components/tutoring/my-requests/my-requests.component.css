@@ -34,3 +34,10 @@
 }
 .btn--primary { background: #3498db; color: #fff; }
 .btn--primary:disabled { background: #a9c8de; cursor: not-allowed; }
+@media (max-width: 480px) {
+  .request-card__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}

@@ -42,3 +42,12 @@
 .btn--primary { background: #3498db; color: #fff; }
 .btn--primary:disabled { background: #a9c8de; cursor: not-allowed; }
 .btn--secondary { background: #ecf0f1; color: #2c3e50; }
+@media (max-width: 480px) {
+  .session-grid {
+    grid-template-columns: 1fr;
+  }
+  .session-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
