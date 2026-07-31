@@ -41,3 +41,22 @@
     gap: 6px;
   }
 }
+.btn__spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-top-color: #fff;
+  border-radius: 50%;
+  margin-right: 6px;
+  animation: btn-spin 0.7s linear infinite;
+  vertical-align: middle;
+}
+@keyframes btn-spin { to { transform: rotate(360deg); } }
+.request-card__confirmed {
+  display: inline-block;
+  margin-top: 10px;
+  color: #1e8449;
+  font-size: 13px;
+  font-weight: 600;
+}

@@ -1,0 +1,27 @@
+<div class="directory-page">
+  <h2>Directory</h2>
+  <p class="directory-page__subtitle">Everyone in your learning community.</p>
+
+  <app-loading-spinner *ngIf="loading" message="Loading directory..."></app-loading-spinner>
+
+  <app-empty-state *ngIf="!loading && users.length === 0"
+                   message="No members found.">
+  </app-empty-state>
+
+  <table class="directory-table" *ngIf="!loading && users.length > 0">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.isInstructor ? 'Instructor' : 'Student' }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

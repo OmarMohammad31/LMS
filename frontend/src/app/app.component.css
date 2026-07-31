@@ -34,9 +34,7 @@
 .app-nav__link--button {
   color: #ff6b6b;
 }
-.app-nav__link--debug {
-  color: #f0c674;
-}
+
 .app-nav__menu-toggle {
   display: none;
   background: none;

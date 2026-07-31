@@ -1,0 +1,30 @@
+.directory-page {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.directory-page__subtitle {
+  color: #888;
+  margin-top: -8px;
+  margin-bottom: 20px;
+}
+.directory-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.directory-table th, .directory-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+.directory-table th {
+  background: #f7f7f7;
+  font-weight: 600;
+}
+@media (max-width: 480px) {
+  .directory-table { font-size: 12px; }
+  .directory-table th, .directory-table td { padding: 8px 10px; }
+}
