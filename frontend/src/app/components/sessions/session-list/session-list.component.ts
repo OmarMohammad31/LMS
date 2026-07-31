@@ -9,6 +9,7 @@ import { User } from 'src/app/models/user.model';
 @Component({
   selector: 'app-session-list',
   templateUrl: './session-list.component.html',
+  standalone: false,
   styleUrls: ['./session-list.component.css']
 })
 export class SessionListComponent implements OnInit {

@@ -1,0 +1,19 @@
+<div class="requests-page">
+  <h2>My Tutoring Requests</h2>
+
+  <app-loading-spinner *ngIf="loading" message="Loading your requests..."></app-loading-spinner>
+
+  <app-empty-state *ngIf="!loading && requests.length === 0"
+                   message="You haven't requested or accepted any tutoring sessions yet.">
+  </app-empty-state>
+
+  <div class="request-card" *ngFor="let request of requests">
+    <div class="request-card__row">
+      <h3>{{ request.topic }}</h3>
+      <span class="request-card__status request-card__status--{{ request.status }}">
+        {{ statusLabel(request.status) }}
+      </span>
+    </div>
+    <p class="request-card__meta">Created {{ request.createdAt | date:'medium' }}</p>
+  </div>
+</div>
