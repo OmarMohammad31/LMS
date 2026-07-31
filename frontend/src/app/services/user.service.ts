@@ -14,9 +14,6 @@ export class UserService {
     return this.http.get<User>(`${this.baseUrl}/me`);
   }
 
-  // Backs the debug/admin page planned for Milestone 5.
-  // Note: GET /users has no auth guard on the backend, flagged during
-  // backend analysis, not something introduced by this method.
   getAll(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl);
   }
