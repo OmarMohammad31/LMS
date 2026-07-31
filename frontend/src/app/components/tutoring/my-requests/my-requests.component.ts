@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TutoringService } from 'src/app/services/tutoring.service';
 import { ToastService } from 'src/app/services/toast.service';
+<<<<<<< HEAD
 import { UserService } from 'src/app/services/user.service';
+=======
+>>>>>>> main
 import { TutoringRequest, TutoringRequestStatus } from 'src/app/models/tutoring-request.model';
 
 @Component({
@@ -13,13 +16,17 @@ export class MyRequestsComponent implements OnInit {
   requests: TutoringRequest[] = [];
   loading = true;
   confirmingId: string | null = null;
+<<<<<<< HEAD
   currentUserId: string | null = null;
+=======
+>>>>>>> main
 
   dialogOpen = false;
   pendingRequestId: string | null = null;
 
   constructor(
     private tutoringService: TutoringService,
+<<<<<<< HEAD
     private toastService: ToastService,
     private userService: UserService
   ) {}
@@ -28,6 +35,12 @@ export class MyRequestsComponent implements OnInit {
     this.userService.getMe().subscribe({
       next: (user) => (this.currentUserId = user.id)
     });
+=======
+    private toastService: ToastService
+  ) {}
+
+  ngOnInit(): void {
+>>>>>>> main
     this.loadRequests();
   }
 
@@ -60,6 +73,7 @@ export class MyRequestsComponent implements OnInit {
     return request.status === 'accepted' && !!request.confirmationDeadline;
   }
 
+<<<<<<< HEAD
   // True once THIS user has already confirmed, distinct from the request
   // as a whole being confirmed (which needs both sides).
   hasUserConfirmed(request: TutoringRequest): boolean {
@@ -72,6 +86,8 @@ export class MyRequestsComponent implements OnInit {
     return false;
   }
 
+=======
+>>>>>>> main
   openConfirmDialog(request: TutoringRequest): void {
     this.pendingRequestId = request._id;
     this.dialogOpen = true;
@@ -90,7 +106,11 @@ export class MyRequestsComponent implements OnInit {
     this.confirmingId = requestId;
 
     this.tutoringService.confirmRequest(requestId).subscribe({
+<<<<<<< HEAD
       next: (result) => this.handleConfirmResult(result, requestId),
+=======
+      next: (result) => this.handleConfirmResult(result),
+>>>>>>> main
       error: () => {
         this.confirmingId = null;
         this.toastService.error('Could not confirm session, please try again.');
@@ -98,6 +118,7 @@ export class MyRequestsComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
   private handleConfirmResult(result: TutoringRequest | null, requestId: string): void {
     this.confirmingId = null;
 
@@ -114,6 +135,14 @@ export class MyRequestsComponent implements OnInit {
         }
       }
       this.toastService.info('Confirmation recorded, waiting on the other party.');
+=======
+  private handleConfirmResult(result: TutoringRequest | null): void {
+    this.confirmingId = null;
+
+    if (result === null) {
+      this.toastService.info('Confirmation recorded, waiting on the other party.');
+      this.loadRequests();
+>>>>>>> main
       return;
     }
 

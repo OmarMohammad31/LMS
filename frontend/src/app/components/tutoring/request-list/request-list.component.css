@@ -1,0 +1,29 @@
+.requests-page { max-width: 600px; margin: 0 auto; }
+.request-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.request-card__meta { color: #888; font-size: 13px; }
+.request-card__form {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.request-card__form input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+@media (max-width: 480px) {
+  .request-card__form {
+    flex-direction: column;
+  }
+  .request-card__form input, .request-card__form button {
+    width: 100%;
+  }
+}

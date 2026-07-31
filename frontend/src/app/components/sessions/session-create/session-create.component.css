@@ -1,0 +1,11 @@
+.form-page { max-width: 480px; margin: 0 auto; }
+.form-page form { display: flex; flex-direction: column; gap: 6px; }
+.form-page label { font-weight: 600; font-size: 13px; margin-top: 10px; }
+.form-page input, .form-page textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.form-page button { margin-top: 16px; }
+.error-text { color: #e74c3c; }

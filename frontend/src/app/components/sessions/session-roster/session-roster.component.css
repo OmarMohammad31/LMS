@@ -1,0 +1,7 @@
+.roster-page { max-width: 480px; margin: 0 auto; }
+.roster-list { list-style: none; padding: 0; }
+.roster-list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+.error-text { color: #e74c3c; }
