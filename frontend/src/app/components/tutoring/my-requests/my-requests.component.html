@@ -15,5 +15,21 @@
       </span>
     </div>
     <p class="request-card__meta">Created {{ request.createdAt | date:'medium' }}</p>
+
+    <button *ngIf="canConfirm(request)"
+            class="btn btn--primary"
+            [disabled]="confirmingId === request._id"
+            (click)="openConfirmDialog(request)">
+      {{ confirmingId === request._id ? 'Confirming...' : 'Confirm session happened' }}
+    </button>
   </div>
+
+  <app-confirm-dialog
+    [open]="dialogOpen"
+    title="Confirm this session?"
+    message="This tells the other party the session took place. If both sides confirm, 1 credit transfers to the tutor."
+    confirmLabel="Yes, confirm"
+    (confirmed)="proceedConfirm()"
+    (cancelled)="cancelConfirm()">
+  </app-confirm-dialog>
 </div>
