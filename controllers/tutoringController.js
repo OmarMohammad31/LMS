@@ -4,8 +4,17 @@ const { createSessionWithCalendar } = require('../services/sessionService');
 const asyncHandler = require('../utils/asyncHandler');
 const AppError = require('../utils/AppError');
 
+// Peer tutoring is student-only. Blocks instructor accounts at the API
+// level, not just in the UI.
+function blockInstructors(req) {
+  if (req.user.isInstructor) {
+    throw new AppError('Peer tutoring is only available to student accounts', 403);
+  }
+}
+
 // POST /tutoring-requests (FR3.2, FR3.3)
 const createRequest = asyncHandler(async (req, res) => {
+  blockInstructors(req);
   const { topic } = req.body;
   if (!topic) throw new AppError('Topic is required', 400);
 
@@ -17,7 +26,6 @@ const createRequest = asyncHandler(async (req, res) => {
     res.status(201).json(request);
   } catch (err) {
     if (err.code === 11000) {
-      // partial unique index caught a second open/accepted request (FR3.3)
       throw new AppError('You already have a pending tutoring request', 409);
     }
     throw err;
@@ -26,6 +34,7 @@ const createRequest = asyncHandler(async (req, res) => {
 
 // GET /tutoring-requests — open requests, excluding the caller's own
 const listRequests = asyncHandler(async (req, res) => {
+  blockInstructors(req);
   const requests = await TutoringRequest.find({
     status: 'open',
     learnerId: { $ne: req.user._id },
@@ -33,11 +42,9 @@ const listRequests = asyncHandler(async (req, res) => {
   res.json(requests);
 });
 
-// GET /tutoring-requests/mine — every request where the caller is either the
-// learner or the tutor, regardless of status. This is the missing read the
-// learner/tutor-facing UI needs, since listRequests() above intentionally
-// excludes the caller's own requests.
+// GET /tutoring-requests/mine
 const listMine = asyncHandler(async (req, res) => {
+  blockInstructors(req);
   const requests = await TutoringRequest.find({
     $or: [{ learnerId: req.user._id }, { tutorId: req.user._id }],
   }).sort({ createdAt: -1 });
@@ -46,6 +53,7 @@ const listMine = asyncHandler(async (req, res) => {
 
 // POST /tutoring-requests/:id/accept (FR3.4, FR3.5)
 const acceptRequest = asyncHandler(async (req, res) => {
+  blockInstructors(req);
   const request = await TutoringRequest.findOne({ _id: req.params.id, status: 'open' })
       .populate('learnerId', 'name email');
   if (!request) throw new AppError('Request not available', 404);
@@ -92,7 +100,6 @@ const confirmRequest = asyncHandler(async (req, res) => {
       { new: true }
   );
 
-  // both sides now confirmed → trigger the atomic transaction-based transfer
   if (updated.learnerConfirmed && updated.tutorConfirmed) {
     const result = await TutoringRequest.confirmAndTransfer(updated._id);
     return res.json(result);

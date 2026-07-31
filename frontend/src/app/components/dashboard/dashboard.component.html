@@ -7,7 +7,7 @@
     <h3>Welcome, {{ userProfile.name }}!</h3>
     <p><strong>Email:</strong> {{ userProfile.email }}</p>
     <p><strong>Role:</strong> {{ userProfile.isInstructor ? 'Instructor' : 'Student' }}</p>
-    <p><strong>Credit Balance:</strong> {{ userProfile.creditBalance }} credits</p>
+    <p *ngIf="!userProfile.isInstructor"><strong>Credit Balance:</strong> {{ userProfile.creditBalance }} credits</p>
     <button (click)="logout()" class="btn btn--danger">Logout</button>
   </div>
 

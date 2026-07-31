@@ -7,9 +7,10 @@ const getMe = asyncHandler(async (req, res) => {
   res.json({ id: _id, name, email, isInstructor, creditBalance });
 });
 
-// GET /users (List all registered users)
+// GET /users (List all registered users) — creditBalance excluded, this
+// endpoint backs the public directory and must never expose balances.
 const getAllUsers = asyncHandler(async (req, res) => {
-  const users = await User.find({}, '-passwordHash');
+  const users = await User.find({}, '-passwordHash -creditBalance');
   res.json(users);
 });
 
