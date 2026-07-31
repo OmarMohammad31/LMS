@@ -4,6 +4,7 @@ import { TutoringService } from '../../services/tutoring.service';
 @Component({
   selector: 'app-accept-requests',
   templateUrl: './accept-requests.component.html',
+  standalone: false,
   styleUrls: ['./accept-requests.component.css']
 })
 export class AcceptRequestsComponent implements OnInit {
