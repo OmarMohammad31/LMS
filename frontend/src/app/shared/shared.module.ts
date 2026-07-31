@@ -5,8 +5,8 @@ import { EmptyStateComponent } from './components/empty-state/empty-state.compon
 import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
-  declarations: [],
-  imports: [CommonModule, LoadingSpinnerComponent, EmptyStateComponent, ToastComponent],
+  declarations: [LoadingSpinnerComponent, EmptyStateComponent, ToastComponent],
+  imports: [CommonModule],
   exports: [LoadingSpinnerComponent, EmptyStateComponent, ToastComponent]
 })
 export class SharedModule {}
