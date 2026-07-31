@@ -1,0 +1,57 @@
+<div class="sessions-page">
+  <div class="sessions-page__header">
+    <h2>Sessions</h2>
+    <a *ngIf="currentUser?.isInstructor" routerLink="/sessions/new" class="btn btn--primary">
+      + Create Session
+    </a>
+  </div>
+
+  <app-loading-spinner *ngIf="loading" message="Loading sessions..."></app-loading-spinner>
+
+  <app-empty-state *ngIf="!loading && sessions.length === 0"
+                   message="No upcoming sessions yet.">
+  </app-empty-state>
+
+  <div class="session-grid" *ngIf="!loading && sessions.length > 0">
+    <div class="session-card" *ngFor="let session of sessions">
+      <div class="session-card__badge" [class.session-card__badge--full]="session.isFull">
+        {{ session.type === 'LiveClass' ? 'Live Class' : 'Peer Tutoring' }}
+        <span *ngIf="session.isFull"> · Full</span>
+      </div>
+
+      <h3>{{ session.title }}</h3>
+      <p class="session-card__desc" *ngIf="session.description">{{ session.description }}</p>
+
+      <p class="session-card__meta">
+        {{ session.startTime | date:'medium' }} · {{ session.durationMinutes }} min ·
+        {{ session.attendeeIds.length }}/{{ session.capacity }} attending
+      </p>
+
+      <p class="session-card__meet">
+        <ng-container *ngIf="session.meetLink; else noMeet">
+          <a [href]="session.meetLink" target="_blank">Join Google Meet</a>
+        </ng-container>
+        <ng-template #noMeet>
+          <span class="session-card__meet--pending">Meeting link not available yet, check back shortly.</span>
+        </ng-template>
+      </p>
+
+      <div class="session-card__actions">
+        <button *ngIf="isHost(session)" class="btn btn--secondary" (click)="viewRoster(session)">
+          View Roster
+        </button>
+
+        <button *ngIf="!isHost(session) && !isBooked(session) && !session.isFull"
+                class="btn btn--primary"
+                [disabled]="bookingId === session._id"
+                (click)="book(session)">
+          {{ bookingId === session._id ? 'Booking...' : 'Book Session' }}
+        </button>
+
+        <span *ngIf="isBooked(session) && !isHost(session)" class="session-card__status">
+          You're booked
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

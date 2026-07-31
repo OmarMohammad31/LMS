@@ -1,0 +1,19 @@
+<div class="roster-page">
+  <h2>Session Roster</h2>
+
+  <app-loading-spinner *ngIf="loading" message="Loading roster..."></app-loading-spinner>
+
+  <p *ngIf="forbidden" class="error-text">
+    Only the session host can view this roster.
+  </p>
+
+  <p *ngIf="errorMessage" class="error-text">{{ errorMessage }}</p>
+
+  <app-empty-state *ngIf="!loading && !forbidden && roster.length === 0"
+                   message="No one has booked this session yet.">
+  </app-empty-state>
+
+  <ul *ngIf="!loading && roster.length > 0" class="roster-list">
+    <li *ngFor="let student of roster">{{ student.name }} — {{ student.email }}</li>
+  </ul>
+</div>
