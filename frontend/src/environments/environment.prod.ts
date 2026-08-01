@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://<your-actual-render-service>.onrender.com'
+  apiUrl: 'https://lms-production-a88f.up.railway.app/'
 };
