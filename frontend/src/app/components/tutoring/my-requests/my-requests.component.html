@@ -9,7 +9,12 @@
 
   <div class="request-card" *ngFor="let request of requests">
     <div class="request-card__row">
-      <h3>{{ request.topic }}</h3>
+      <div class="request-card__title">
+        <h3>{{ request.topic }}</h3>
+        <span class="request-card__role request-card__role--{{ roleLabel(request).toLowerCase().split(' ').join('-') }}">
+          {{ roleLabel(request) }}
+        </span>
+      </div>
       <span class="request-card__status request-card__status--{{ request.status }}">
         {{ statusLabel(request.status) }}
       </span>

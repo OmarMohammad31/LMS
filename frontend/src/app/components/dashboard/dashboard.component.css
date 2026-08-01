@@ -1,5 +1,5 @@
 .dashboard-page {
-  max-width: 500px;
+  max-width: 900px;
   margin: 0 auto;
 }
 .profile-card {
@@ -7,6 +7,7 @@
   padding: 20px;
   border-radius: 8px;
   background-color: #f9f9f9;
+  margin-bottom: 20px;
 }
 .btn--danger {
   margin-top: 15px;
@@ -20,3 +21,57 @@
 .error-text {
   color: #e74c3c;
 }
+
+.widget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.widget {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+}
+.widget h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+.widget--alert {
+  border-color: #f5b041;
+  background: #fef9e7;
+}
+.widget__empty { color: #999; font-size: 14px; }
+.widget__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+.widget__list li {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+.widget__meta { color: #888; font-size: 12px; margin-top: 2px; }
+.widget__stats {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+  font-size: 14px;
+}
+.widget__stats li { padding: 4px 0; }
+.widget__number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+}
+.widget__link {
+  font-size: 13px;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+}
+.widget__link:hover { text-decoration: underline; }

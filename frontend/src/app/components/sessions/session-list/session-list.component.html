@@ -8,12 +8,12 @@
 
   <app-loading-spinner *ngIf="loading" message="Loading sessions..."></app-loading-spinner>
 
-  <app-empty-state *ngIf="!loading && sessions.length === 0"
+  <app-empty-state *ngIf="!loading && visibleSessions.length === 0"
                    message="No upcoming sessions yet.">
   </app-empty-state>
 
-  <div class="session-grid" *ngIf="!loading && sessions.length > 0">
-    <div class="session-card" *ngFor="let session of sessions">
+  <div class="session-grid" *ngIf="!loading && visibleSessions.length > 0">
+    <div class="session-card" *ngFor="let session of visibleSessions">
       <div class="session-card__badge" [class.session-card__badge--full]="session.isFull">
         {{ session.type === 'LiveClass' ? 'Live Class' : 'Peer Tutoring' }}
         <span *ngIf="session.isFull"> · Full</span>
@@ -27,7 +27,7 @@
         {{ session.attendeeIds.length }}/{{ session.capacity }} attending
       </p>
 
-      <p class="session-card__meet">
+      <p class="session-card__meet" *ngIf="isHost(session) || isBooked(session)">
         <ng-container *ngIf="session.meetLink; else noMeet">
           <a [href]="session.meetLink" target="_blank">Join Google Meet</a>
         </ng-container>

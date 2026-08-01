@@ -1,14 +1,57 @@
 <div class="dashboard-page">
   <h2>Dashboard</h2>
 
-  <app-loading-spinner *ngIf="loading" message="Loading your profile..."></app-loading-spinner>
+  <app-loading-spinner *ngIf="loading" message="Loading your dashboard..."></app-loading-spinner>
 
-  <div *ngIf="!loading && userProfile" class="profile-card">
-    <h3>Welcome, {{ userProfile.name }}!</h3>
-    <p><strong>Email:</strong> {{ userProfile.email }}</p>
-    <p><strong>Role:</strong> {{ userProfile.isInstructor ? 'Instructor' : 'Student' }}</p>
-    <p *ngIf="!userProfile.isInstructor"><strong>Credit Balance:</strong> {{ userProfile.creditBalance }} credits</p>
-    <button (click)="logout()" class="btn btn--danger">Logout</button>
+  <div *ngIf="!loading && userProfile">
+    <div class="profile-card">
+      <h3>Welcome, {{ userProfile.name }}!</h3>
+      <p><strong>Email:</strong> {{ userProfile.email }}</p>
+      <p><strong>Role:</strong> {{ userProfile.isInstructor ? 'Instructor' : 'Student' }}</p>
+      <p *ngIf="!userProfile.isInstructor"><strong>Credit Balance:</strong> {{ userProfile.creditBalance }} credits</p>
+      <button (click)="logout()" class="btn btn--danger">Logout</button>
+    </div>
+
+    <div class="widget-grid">
+      <div class="widget">
+        <h4>Upcoming Sessions</h4>
+        <p *ngIf="upcomingSessions.length === 0" class="widget__empty">No upcoming sessions.</p>
+        <ul class="widget__list" *ngIf="upcomingSessions.length > 0">
+          <li *ngFor="let s of upcomingSessions">
+            <strong>{{ s.title }}</strong>
+            <span class="widget__meta">{{ s.startTime | date:'medium' }}</span>
+          </li>
+        </ul>
+        <a routerLink="/sessions" class="widget__link">View all sessions</a>
+      </div>
+
+      <div class="widget" *ngIf="userProfile.isInstructor">
+        <h4>Sessions Hosted</h4>
+        <p class="widget__number">{{ hostedSessionsCount }}</p>
+      </div>
+
+      <div class="widget" *ngIf="!userProfile.isInstructor">
+        <h4>Tutoring Requests</h4>
+        <ul class="widget__stats">
+          <li>Open: {{ tutoringStats.open }}</li>
+          <li>Scheduled: {{ tutoringStats.accepted }}</li>
+          <li>Completed: {{ tutoringStats.confirmed }}</li>
+          <li>Expired: {{ tutoringStats.expired }}</li>
+        </ul>
+        <a routerLink="/tutoring/mine" class="widget__link">View my requests</a>
+      </div>
+
+      <div class="widget widget--alert" *ngIf="!userProfile.isInstructor && pendingConfirmations.length > 0">
+        <h4>Pending Confirmations</h4>
+        <ul class="widget__list">
+          <li *ngFor="let r of pendingConfirmations">
+            <strong>{{ r.topic }}</strong>
+            <span class="widget__meta">You're acting as {{ roleInRequest(r) }}</span>
+          </li>
+        </ul>
+        <a routerLink="/tutoring/mine" class="widget__link">Confirm now</a>
+      </div>
+    </div>
   </div>
 
   <p *ngIf="errorMsg" class="error-text">{{ errorMsg }}</p>

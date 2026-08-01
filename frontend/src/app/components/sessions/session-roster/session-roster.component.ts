@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SessionService } from 'src/app/services/session.service';
+import { SessionService, RosterEntry } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-session-roster',
@@ -9,7 +9,7 @@ import { SessionService } from 'src/app/services/session.service';
   styleUrls: ['./session-roster.component.css']
 })
 export class SessionRosterComponent implements OnInit {
-  roster: { _id: string; name: string; email: string }[] = [];
+  roster: RosterEntry[] = [];
   loading = true;
   forbidden = false;
   errorMessage = '';
@@ -34,5 +34,9 @@ export class SessionRosterComponent implements OnInit {
         }
       }
     });
+  }
+
+  roleClass(role: string): string {
+    return 'roster-list__role--' + role.toLowerCase().replace(' ', '-');
   }
 }
