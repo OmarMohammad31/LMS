@@ -28,8 +28,18 @@ export class AppComponent implements OnInit {
     });
   }
 
+  getInitials(name: string): string {
+    return name
+      .split(' ')
+      .filter(Boolean)
+      .slice(0, 2)
+      .map(w => w[0].toUpperCase())
+      .join('');
+  }
+
   logout(): void {
     this.authService.logout();
     this.currentUser = null;
+    this.menuOpen = false;
   }
 }

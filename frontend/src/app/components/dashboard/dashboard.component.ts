@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
 
   upcomingSessions: Session[] = [];
   hostedSessionsCount = 0;
+  totalBookings = 0;
 
   tutoringStats = { open: 0, accepted: 0, confirmed: 0, expired: 0, failedTransfer: 0 };
   pendingConfirmations: TutoringRequest[] = [];
@@ -90,7 +91,9 @@ export class DashboardComponent implements OnInit {
       .sort((a, b) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime())
       .slice(0, 5);
 
-    this.hostedSessionsCount = sessions.filter(s => s.hostId === userId).length;
+    const hosted = sessions.filter(s => s.hostId === userId);
+    this.hostedSessionsCount = hosted.length;
+    this.totalBookings = hosted.reduce((sum, s) => sum + s.attendeeIds.length, 0);
   }
 
   private processRequests(requests: TutoringRequest[]): void {
@@ -120,6 +123,10 @@ export class DashboardComponent implements OnInit {
     if (!this.userProfile) return '';
     const learnerId = typeof request.learnerId === 'object' ? request.learnerId._id : request.learnerId;
     return learnerId === this.userProfile.id ? 'Learner' : 'Peer Tutor';
+  }
+
+  isHostOf(session: Session): boolean {
+    return !!this.userProfile && session.hostId === this.userProfile.id;
   }
 
   logout(): void {
