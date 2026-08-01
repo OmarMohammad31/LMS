@@ -4,6 +4,13 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CreateSessionPayload, Session } from '../models/session.model';
 
+export interface RosterEntry {
+  _id: string;
+  name: string;
+  email: string;
+  role: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class SessionService {
   private baseUrl = `${environment.apiUrl}/sessions`;
@@ -22,9 +29,7 @@ export class SessionService {
     return this.http.post<Session>(`${this.baseUrl}/${sessionId}/book`, {});
   }
 
-  getRoster(sessionId: string): Observable<{ _id: string; name: string; email: string }[]> {
-    return this.http.get<{ _id: string; name: string; email: string }[]>(
-      `${this.baseUrl}/${sessionId}/roster`
-    );
+  getRoster(sessionId: string): Observable<RosterEntry[]> {
+    return this.http.get<RosterEntry[]>(`${this.baseUrl}/${sessionId}/roster`);
   }
 }

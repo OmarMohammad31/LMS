@@ -56,6 +56,15 @@ export class MyRequestsComponent implements OnInit {
     return labels[status];
   }
 
+  // Identifies whether the logged-in user is the learner or the peer
+  // tutor on this specific request, since one account can be either
+  // depending on the request.
+  roleLabel(request: TutoringRequest): string {
+    if (!this.currentUserId) return '';
+    const learnerId = typeof request.learnerId === 'object' ? request.learnerId._id : request.learnerId;
+    return learnerId === this.currentUserId ? 'Learner' : 'Peer Tutor';
+  }
+
   canConfirm(request: TutoringRequest): boolean {
     return request.status === 'accepted' && !!request.confirmationDeadline;
   }

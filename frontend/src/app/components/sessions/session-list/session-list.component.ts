@@ -46,6 +46,15 @@ export class SessionListComponent implements OnInit {
     });
   }
 
+  // Instructors have no involvement in peer tutoring, so those sessions
+  // are filtered out of their view entirely (not just hidden nav items).
+  get visibleSessions(): Session[] {
+    if (this.currentUser?.isInstructor) {
+      return this.sessions.filter(s => s.type !== 'PeerTutoring');
+    }
+    return this.sessions;
+  }
+
   isHost(session: Session): boolean {
     return !!this.currentUser && session.hostId === this.currentUser.id;
   }
@@ -64,12 +73,11 @@ export class SessionListComponent implements OnInit {
       },
       error: (err) => {
         this.bookingId = null;
-        // 409 = full or already booked, a legitimate race, not a bug
         const message = err.status === 409
           ? (err.error?.error || 'Session is full or already booked.')
           : 'Booking failed, please try again.';
         this.toastService.error(message);
-        this.loadSessions(); // refresh, someone else may have just filled it
+        this.loadSessions();
       }
     });
   }

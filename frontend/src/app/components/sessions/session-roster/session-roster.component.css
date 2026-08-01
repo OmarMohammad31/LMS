@@ -1,7 +1,35 @@
 .roster-page { max-width: 480px; margin: 0 auto; }
 .roster-list { list-style: none; padding: 0; }
-.roster-list li {
+.roster-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
   border-bottom: 1px solid #eee;
 }
+.roster-list__info {
+  display: flex;
+  flex-direction: column;
+}
+.roster-list__name { font-weight: 600; }
+.roster-list__email { font-size: 12px; color: #888; }
+.roster-list__role {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+.roster-list__role--instructor { background: #eaf2f8; color: #2874a6; }
+.roster-list__role--student { background: #f2f3f4; color: #4d5656; }
+.roster-list__role--peer-tutor { background: #eafaf1; color: #1e8449; }
+.roster-list__role--learner { background: #fef5e7; color: #d68910; }
 .error-text { color: #e74c3c; }
+
+@media (max-width: 480px) {
+  .roster-list__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}

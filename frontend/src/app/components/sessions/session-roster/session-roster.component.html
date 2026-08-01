@@ -14,6 +14,14 @@
   </app-empty-state>
 
   <ul *ngIf="!loading && roster.length > 0" class="roster-list">
-    <li *ngFor="let student of roster">{{ student.name }} — {{ student.email }}</li>
+    <li *ngFor="let student of roster" class="roster-list__item">
+      <div class="roster-list__info">
+        <span class="roster-list__name">{{ student.name }}</span>
+        <span class="roster-list__email">{{ student.email }}</span>
+      </div>
+      <span class="roster-list__role" [ngClass]="roleClass(student.role)">
+        {{ student.role }}
+      </span>
+    </li>
   </ul>
 </div>
