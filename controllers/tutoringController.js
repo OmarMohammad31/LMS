@@ -38,7 +38,7 @@ const listRequests = asyncHandler(async (req, res) => {
   const requests = await TutoringRequest.find({
     status: 'open',
     learnerId: { $ne: req.user._id },
-  });
+  }).populate('learnerId', 'name email');
   res.json(requests);
 });
 
