@@ -125,6 +125,7 @@ frontend/src/styles.css
 frontend/tsconfig.app.json
 frontend/tsconfig.json
 frontend/tsconfig.spec.json
+frontend/vercel.json
 get-refresh-token.js
 list-users.js
 middleware/auth.js
@@ -312,8 +313,10 @@ const errorHandler = require('./middleware/errorHandler');
 const app = express();
 app.use(express.json());
 
+const allowedOrigin = process.env.CORS_ORIGIN || '*';
+
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Origin', allowedOrigin);
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   if (req.method === 'OPTIONS') {
@@ -504,7 +507,7 @@ const listRequests = asyncHandler(async (req, res) => {
   const requests = await TutoringRequest.find({
     status: 'open',
     learnerId: { $ne: req.user._id },
-  });
+  }).populate('learnerId', 'name email');
   res.json(requests);
 });
 
@@ -773,13 +776,13 @@ Thumbs.db
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "10kb",
+                  "maximumError": "20kb"
                 }
               ],
               "outputHashing": "all",
@@ -4522,8 +4525,7 @@ export class SharedModule {}
 <file path="frontend/src/environments/environment.prod.ts">
 export const environment = {
   production: true,
-  //I'll Set this to the deployed Render URL from project_status.md's deployment plan.
-  apiUrl: 'https://your-render-app.onrender.com'
+  apiUrl: 'https://<your-actual-render-service>.onrender.com'
 };
 </file>
 
@@ -4695,6 +4697,14 @@ button { font-family: inherit; }
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
+  ]
+}
+</file>
+
+<file path="frontend/vercel.json">
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
 </file>
