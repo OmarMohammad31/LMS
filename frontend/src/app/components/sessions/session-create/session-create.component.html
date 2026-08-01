@@ -1,26 +1,48 @@
 <div class="form-page">
-  <h2>Create Session</h2>
+  <div class="page-header">
+    <h1 class="page-title">Create Session</h1>
+    <p class="page-sub">Schedule a new live class for students to book.</p>
+  </div>
 
-  <p *ngIf="errorMessage" class="error-text">{{ errorMessage }}</p>
+  <div class="form-card">
+    <div class="form-error" *ngIf="errorMessage">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      {{ errorMessage }}
+    </div>
 
-  <form (ngSubmit)="submit()">
-    <label>Title *</label>
-    <input type="text" [(ngModel)]="title" name="title" required>
+    <form (ngSubmit)="submit()">
+      <div class="form-group">
+        <label class="form-label">Title <span class="req">*</span></label>
+        <input class="form-input" type="text" [(ngModel)]="title" name="title" placeholder="e.g. Intro to Linear Algebra" required>
+      </div>
 
-    <label>Description</label>
-    <textarea [(ngModel)]="description" name="description" rows="3"></textarea>
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea class="form-input form-textarea" [(ngModel)]="description" name="description" rows="3" placeholder="What will this session cover?"></textarea>
+      </div>
 
-    <label>Start Time *</label>
-    <input type="datetime-local" [(ngModel)]="startTime" name="startTime" required>
+      <div class="form-group">
+        <label class="form-label">Start Time <span class="req">*</span></label>
+        <input class="form-input" type="datetime-local" [(ngModel)]="startTime" name="startTime" required>
+      </div>
 
-    <label>Duration (minutes, max 60) *</label>
-    <input type="number" [(ngModel)]="durationMinutes" name="durationMinutes" min="1" max="60" required>
+      <div class="form-row two-col">
+        <div class="form-group">
+          <label class="form-label">Duration, minutes, max 60 <span class="req">*</span></label>
+          <input class="form-input" type="number" [(ngModel)]="durationMinutes" name="durationMinutes" min="1" max="60" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Capacity, max 100 <span class="req">*</span></label>
+          <input class="form-input" type="number" [(ngModel)]="capacity" name="capacity" min="1" max="100" required>
+        </div>
+      </div>
 
-    <label>Capacity (max 100) *</label>
-    <input type="number" [(ngModel)]="capacity" name="capacity" min="1" max="100" required>
-
-    <button type="submit" class="btn btn--primary" [disabled]="submitting">
-      {{ submitting ? 'Creating...' : 'Create Session' }}
-    </button>
-  </form>
+      <div class="form-actions">
+        <button type="submit" class="btn-submit" [disabled]="submitting">
+          <span *ngIf="!submitting"><i class="fa-solid fa-calendar-plus"></i> Create Session</span>
+          <span *ngIf="submitting" class="spinner-sm"></span>
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

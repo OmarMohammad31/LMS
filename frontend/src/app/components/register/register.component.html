@@ -1,35 +1,66 @@
-<div style="max-width: 400px; margin: 40px auto; font-family: sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-  <h2>Register</h2>
-
-  <div *ngIf="errorMessage" style="color: red; margin-bottom: 15px; padding: 10px; background-color: #fee; border-radius: 4px;">
-    {{ errorMessage }}
+<div class="auth-page">
+  <div class="auth-bg">
+    <div class="auth-orb auth-orb-1"></div>
+    <div class="auth-orb auth-orb-2"></div>
+    <div class="auth-orb auth-orb-3"></div>
   </div>
 
-  <form (ngSubmit)="registerUser()">
-    <div style="margin-bottom: 15px;">
-      <label style="display: block; margin-bottom: 5px;">Full Name:</label>
-      <input type="text" [(ngModel)]="user.name" name="name" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="auth-logo"><i class="fa-solid fa-user-plus"></i></div>
+      <h1>Create Account</h1>
+      <p class="auth-subtitle">Join our learning community today</p>
     </div>
 
-    <div style="margin-bottom: 15px;">
-      <label style="display: block; margin-bottom: 5px;">Email:</label>
-      <input type="email" [(ngModel)]="user.email" name="email" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+    <div class="auth-error" *ngIf="errorMessage">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      {{ errorMessage }}
     </div>
 
-    <div style="margin-bottom: 15px;">
-      <label style="display: block; margin-bottom: 5px;">Password:</label>
-      <input type="password" [(ngModel)]="user.password" name="password" required style="width: 100%; padding: 8px; box-sizing: border-box;">
-    </div>
+    <form (ngSubmit)="registerUser()" class="auth-form">
+      <div class="auth-field">
+        <label for="reg-name">Full Name</label>
+        <div class="auth-input-wrap">
+          <i class="fa-solid fa-user auth-input-icon"></i>
+          <input id="reg-name" type="text" [(ngModel)]="user.name" name="name" required
+                 placeholder="John Doe" autocomplete="name">
+        </div>
+      </div>
 
-    <div style="margin-bottom: 15px;">
-      <label>
-        <input type="checkbox" [(ngModel)]="user.isInstructor" name="isInstructor">
-        Register as Instructor
-      </label>
-    </div>
+      <div class="auth-field">
+        <label for="reg-email">Email Address</label>
+        <div class="auth-input-wrap">
+          <i class="fa-solid fa-envelope auth-input-icon"></i>
+          <input id="reg-email" type="email" [(ngModel)]="user.email" name="email" required
+                 placeholder="you@example.com" autocomplete="email">
+        </div>
+      </div>
 
-    <button type="submit" [disabled]="loading" style="padding: 10px 20px; background-color: #2ecc71; color: white; border: none; border-radius: 4px; cursor: pointer;">
-      {{ loading ? 'Registering...' : 'Register' }}
-    </button>
-  </form>
+      <div class="auth-field">
+        <label for="reg-password">Password</label>
+        <div class="auth-input-wrap">
+          <i class="fa-solid fa-lock auth-input-icon"></i>
+          <input id="reg-password" type="password" [(ngModel)]="user.password" name="password" required
+                 placeholder="Create a strong password" autocomplete="new-password">
+        </div>
+      </div>
+
+      <div class="auth-field">
+        <label class="auth-checkbox">
+          <input type="checkbox" [(ngModel)]="user.isInstructor" name="isInstructor">
+          <span><i class="fa-solid fa-chalkboard-user" style="margin-right:6px;opacity:0.7;"></i>Register as Instructor</span>
+        </label>
+      </div>
+
+      <button type="submit" class="auth-btn" [disabled]="loading">
+        <span *ngIf="!loading">Create Account</span>
+        <span *ngIf="loading" class="auth-spinner"></span>
+      </button>
+    </form>
+
+    <p class="auth-footer">
+      Already have an account?
+      <a routerLink="/login" class="auth-link">Sign in</a>
+    </p>
+  </div>
 </div>

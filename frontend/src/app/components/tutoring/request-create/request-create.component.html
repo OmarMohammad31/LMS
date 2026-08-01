@@ -1,16 +1,32 @@
 <div class="form-page">
-  <h2>Request Tutoring</h2>
+  <div class="page-header">
+    <h1 class="page-title">Request Tutoring</h1>
+    <p class="page-sub">Ask another student for help on a topic.</p>
+  </div>
 
-  <p *ngIf="errorMessage" class="error-text">{{ errorMessage }}</p>
+  <div class="form-card">
+    <div class="form-error" *ngIf="errorMessage">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      {{ errorMessage }}
+    </div>
 
-  <form (ngSubmit)="submit()">
-    <label>Topic *</label>
-    <input type="text" [(ngModel)]="topic" name="topic" placeholder="e.g. Linear Algebra" required>
+    <form (ngSubmit)="submit()">
+      <div class="form-group">
+        <label class="form-label">Topic <span style="color:#EF4444;">*</span></label>
+        <input class="form-input" type="text" [(ngModel)]="topic" name="topic" placeholder="e.g. Linear Algebra" required>
+      </div>
 
-    <button type="submit" class="btn btn--primary" [disabled]="submitting">
-      {{ submitting ? 'Submitting...' : 'Submit Request' }}
-    </button>
-  </form>
+      <div class="form-hint">
+        <i class="fa-solid fa-circle-info"></i>
+        Costs 1 credit. You can only have one open request at a time.
+      </div>
 
-  <p class="form-page__hint">Costs 1 credit. You can only have one open request at a time.</p>
+      <div class="form-actions">
+        <button type="submit" class="btn-submit" [disabled]="submitting">
+          <span *ngIf="!submitting"><i class="fa-solid fa-hand"></i> Submit Request</span>
+          <span *ngIf="submitting" class="spinner-sm"></span>
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

@@ -1,27 +1,36 @@
 <div class="directory-page">
-  <h2>Directory</h2>
-  <p class="directory-page__subtitle">Everyone in your learning community.</p>
+  <div class="page-header">
+    <h1 class="page-title">Directory</h1>
+    <p class="page-sub">Everyone in your learning community.</p>
+  </div>
 
-  <app-loading-spinner *ngIf="loading" message="Loading directory..."></app-loading-spinner>
+  <div *ngIf="loading" class="directory-card">
+    <div class="skeleton-wrap">
+      <div class="skeleton-row" *ngFor="let i of [1,2,3,4]">
+        <div class="skeleton-avatar"></div>
+        <div style="flex: 1;">
+          <div class="skeleton-line name"></div>
+          <div class="skeleton-line email"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <app-empty-state *ngIf="!loading && users.length === 0"
-                   message="No members found.">
-  </app-empty-state>
+  <div *ngIf="!loading && users.length === 0" class="empty-state">
+    <div class="icon-badge blue lg"><i class="fa-solid fa-users-slash"></i></div>
+    <p>No members found.</p>
+  </div>
 
-  <table class="directory-table" *ngIf="!loading && users.length > 0">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Role</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{ user.name }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.isInstructor ? 'Instructor' : 'Student' }}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="directory-card" *ngIf="!loading && users.length > 0">
+    <div class="dir-row" *ngFor="let user of users">
+      <div class="dir-avatar">{{ getInitials(user.name) }}</div>
+      <div class="dir-info">
+        <div class="dir-name">{{ user.name }}</div>
+        <div class="dir-email">{{ user.email }}</div>
+      </div>
+      <span class="role-badge" [ngClass]="user.isInstructor ? 'role-badge--instructor' : 'role-badge--student'">
+        {{ user.isInstructor ? 'Instructor' : 'Student' }}
+      </span>
+    </div>
+  </div>
 </div>

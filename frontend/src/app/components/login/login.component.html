@@ -1,23 +1,50 @@
-<div style="max-width: 400px; margin: 40px auto; font-family: sans-serif; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-  <h2>Login</h2>
-
-  <div *ngIf="errorMessage" style="color: red; margin-bottom: 15px; padding: 10px; background-color: #fee; border-radius: 4px;">
-    {{ errorMessage }}
+<div class="auth-page">
+  <div class="auth-bg">
+    <div class="auth-orb auth-orb-1"></div>
+    <div class="auth-orb auth-orb-2"></div>
+    <div class="auth-orb auth-orb-3"></div>
   </div>
 
-  <form (ngSubmit)="loginUser()">
-    <div style="margin-bottom: 15px;">
-      <label style="display: block; margin-bottom: 5px;">Email:</label>
-      <input type="email" [(ngModel)]="user.email" name="email" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="auth-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+      <h1>Welcome Back</h1>
+      <p class="auth-subtitle">Sign in to continue your learning journey</p>
     </div>
 
-    <div style="margin-bottom: 15px;">
-      <label style="display: block; margin-bottom: 5px;">Password:</label>
-      <input type="password" [(ngModel)]="user.password" name="password" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+    <div class="auth-error" *ngIf="errorMessage">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      {{ errorMessage }}
     </div>
 
-    <button type="submit" [disabled]="loading" style="padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer;">
-      {{ loading ? 'Logging in...' : 'Login' }}
-    </button>
-  </form>
+    <form (ngSubmit)="loginUser()" class="auth-form">
+      <div class="auth-field">
+        <label for="login-email">Email Address</label>
+        <div class="auth-input-wrap">
+          <i class="fa-solid fa-envelope auth-input-icon"></i>
+          <input id="login-email" type="email" [(ngModel)]="user.email" name="email" required
+                 placeholder="you@example.com" autocomplete="email">
+        </div>
+      </div>
+
+      <div class="auth-field">
+        <label for="login-password">Password</label>
+        <div class="auth-input-wrap">
+          <i class="fa-solid fa-lock auth-input-icon"></i>
+          <input id="login-password" type="password" [(ngModel)]="user.password" name="password" required
+                 placeholder="Enter your password" autocomplete="current-password">
+        </div>
+      </div>
+
+      <button type="submit" class="auth-btn" [disabled]="loading">
+        <span *ngIf="!loading">Sign In</span>
+        <span *ngIf="loading" class="auth-spinner"></span>
+      </button>
+    </form>
+
+    <p class="auth-footer">
+      Don't have an account?
+      <a routerLink="/register" class="auth-link">Create one</a>
+    </p>
+  </div>
 </div>

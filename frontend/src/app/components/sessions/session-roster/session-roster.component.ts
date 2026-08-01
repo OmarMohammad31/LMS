@@ -37,6 +37,15 @@ export class SessionRosterComponent implements OnInit {
   }
 
   roleClass(role: string): string {
-    return 'roster-list__role--' + role.toLowerCase().replace(' ', '-');
+    return 'role-badge--' + role.toLowerCase().replace(/\s+/g, '-');
+  }
+
+  getInitials(name: string): string {
+    return name
+      .split(' ')
+      .filter(Boolean)
+      .slice(0, 2)
+      .map(w => w[0].toUpperCase())
+      .join('');
   }
 }
